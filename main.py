@@ -41,6 +41,9 @@ def main():
         if COMMAND.startswith("cd"):
             directory = COMMAND.split("cd ")[1]
 
+            if directory == "~":
+                directory = os.path.expanduser("~")
+                
             os.chdir(directory)
 
         if (COMMAND.split(" ")[0] in COMMANDS_LIST) == False:
