@@ -30,6 +30,7 @@ def main():
                 print(message)
 
         if (COMMAND.split(" ")[0] in COMMANDS_LIST) == False:
+            print(os.environ.get("PATH"))
             print(f'{COMMAND}: command not found')
 
 if __name__ == "__main__":
