@@ -8,7 +8,7 @@ def main():
         sys.stdout.flush()
 
         COMMAND = str(input())
-        COMMANDS_LIST: list[str] = ["echo", "exit", "exit 0", "type", "PATH"]
+        COMMANDS_LIST: list[str] = ["echo", "exit", "exit 0", "type", "PATH", "pwd", "cd"]
 
         match COMMAND:
             case 'exit 0':
@@ -37,6 +37,11 @@ def main():
                 message = f'{function} is a shell builtin'
 
                 print(message)
+        
+        if COMMAND.startswith("cd"):
+            directory = COMMAND.split("cd ")[1]
+
+            os.chdir(directory)
 
         if (COMMAND.split(" ")[0] in COMMANDS_LIST) == False:
             print(f'{COMMAND}: command not found')
