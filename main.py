@@ -20,6 +20,9 @@ def main():
                 for index, path in enumerate(PATH):
                     print(f"{index} : {path}")
 
+            case "pwd":
+                print(os.getcwd())
+
         if COMMAND.startswith('echo'):
             message = COMMAND.split("echo")[1]
             print(message)
